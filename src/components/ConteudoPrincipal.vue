@@ -5,10 +5,15 @@ import Tag from '../components/Tag.vue'
 export default {
   data() {
     return {
-      ingredientes: ['Kaio']
+      ingredientes: [] as string[]
     }
   },
-  components: { SelecionarIngredientes, Tag }
+  components: { SelecionarIngredientes, Tag },
+  methods: {
+    adicionarIngredientes(ingrediente: string) {
+      this.ingredientes.push(ingrediente)
+    }
+  }
 }
 
 </script>
@@ -32,7 +37,7 @@ export default {
       </p>
     </section>
 
-    <SelecionarIngredientes />
+    <SelecionarIngredientes @adicionar-ingrediente="adicionarIngredientes" />
   </main>
 </template>
 
